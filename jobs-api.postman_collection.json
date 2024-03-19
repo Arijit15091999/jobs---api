@@ -1,0 +1,247 @@
+{
+	"info": {
+		"_postman_id": "13bd3d65-d8d6-4b20-ace1-fb005b1fa8bb",
+		"name": "jobs-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31885830"
+	},
+	"item": [
+		{
+			"name": "register the user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"arijit1234\",\r\n    \"email\":\"arijit1234@gmail.com\",\r\n    \"password\":\"secret\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/auth/register",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login the user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWY5NGI4ODMxMmE3NDg0NmY5YjQ3OTEiLCJuYW1lIjoiYXJpaml0MTIzNCIsImlhdCI6MTcxMDgzNjYxNiwiZXhwIjoxNzEzNDI4NjE2fQ.fy3pe40e66nVe5H3_hBcbByTCM5UVJNP0GPcIXXnCLM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"arijit1234@gmail.com\",\r\n    \"password\":\"secret\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/auth/login",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "gel all jobs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/jobs",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"jobs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create a job",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWY5NGI4ODMxMmE3NDg0NmY5YjQ3OTEiLCJuYW1lIjoiYXJpaml0MTIzNCIsImlhdCI6MTcxMDgzNjYxNiwiZXhwIjoxNzEzNDI4NjE2fQ.fy3pe40e66nVe5H3_hBcbByTCM5UVJNP0GPcIXXnCLM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWY5MmY2ZGNmNTczOGFhOGUxN2Q4ZTAiLCJuYW1lIjoiYXJpaml0MTIzIiwiaWF0IjoxNzEwODI5NDIxLCJleHAiOjE3MTM0MjE0MjF9.-KlP67PDpsDgEb0lx5CLd3NWFVC4KDvcnQkKIenfn8I",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"company\":\"google\",\r\n    \"position\":\"backend developer\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/jobs",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"jobs"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get the job",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWY5MmY2ZGNmNTczOGFhOGUxN2Q4ZTAiLCJuYW1lIjoiYXJpaml0MTIzIiwiaWF0IjoxNzEwODI5NDIxLCJleHAiOjE3MTM0MjE0MjF9.-KlP67PDpsDgEb0lx5CLd3NWFVC4KDvcnQkKIenfn8I",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{URL}}/jobs/:id",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"jobs",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "65f9522bce216553925806f1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete the job",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWY5NGI4ODMxMmE3NDg0NmY5YjQ3OTEiLCJuYW1lIjoiYXJpaml0MTIzNCIsImlhdCI6MTcxMDgzNjYxNiwiZXhwIjoxNzEzNDI4NjE2fQ.fy3pe40e66nVe5H3_hBcbByTCM5UVJNP0GPcIXXnCLM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/jobs/:id",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"jobs",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "65f9522bce216553925806f1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update a job",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWY5NGI4ODMxMmE3NDg0NmY5YjQ3OTEiLCJuYW1lIjoiYXJpaml0MTIzNCIsImlhdCI6MTcxMDgzNjYxNiwiZXhwIjoxNzEzNDI4NjE2fQ.fy3pe40e66nVe5H3_hBcbByTCM5UVJNP0GPcIXXnCLM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"company\":\"Apple\",\r\n    \"position\":\"frontend developer\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/jobs/:id",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"jobs",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "65f9536cb8ae556dfabcd62e"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
